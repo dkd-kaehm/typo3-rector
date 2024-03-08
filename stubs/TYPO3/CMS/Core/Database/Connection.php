@@ -3,6 +3,7 @@
 namespace TYPO3\CMS\Core\Database;
 
 use TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder;
+use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 
 if (class_exists('TYPO3\CMS\Core\Database\Connection')) {
     return;
@@ -41,16 +42,21 @@ class Connection extends \Doctrine\DBAL\Connection
     public const PARAM_BOOL = \PDO::PARAM_BOOL; // 5
 
     /** @var ExpressionBuilder */
-    protected $_expr;
+    protected ExpressionBuilder $_expr;
 
-    /**
-     * @return ExpressionBuilder
-     */
-    public function getExpressionBuilder()
+    public function getExpressionBuilder(): ExpressionBuilder
     {
         return $this->_expr;
     }
 
+    public function createQueryBuilder(): QueryBuilder
+    {
+    }
+
     public function lastInsertId()
-    {}
+    {
+
+    }
+
+
 }
