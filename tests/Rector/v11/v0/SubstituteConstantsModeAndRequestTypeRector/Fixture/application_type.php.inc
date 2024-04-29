@@ -24,6 +24,10 @@ class MyController
             // Do something
         }
 
+        if (TYPO3_MODE !== 'FE') {
+            // Do something
+        }
+
         if ('BE' === TYPO3_MODE) {
             // Do something
         }
@@ -64,6 +68,10 @@ class MyController
         }
 
         if (ApplicationType::fromRequest($GLOBALS['TYPO3_REQUEST'])->isFrontend()) {
+            // Do something
+        }
+
+        if (!ApplicationType::fromRequest($GLOBALS['TYPO3_REQUEST'])->isFrontend()) {
             // Do something
         }
 
